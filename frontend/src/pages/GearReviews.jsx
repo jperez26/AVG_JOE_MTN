@@ -1,0 +1,123 @@
+import React from 'react';
+import { Card, CardContent } from '../components/ui/card';
+import { Star } from 'lucide-react';
+import { gearReviews } from '../mock';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
+
+const GearReviews = () => {
+  const categories = ['All', ...new Set(gearReviews.map(item => item.category))];
+  const [selectedCategory, setSelectedCategory] = React.useState('All');
+
+  const filteredGear = selectedCategory === 'All'
+    ? gearReviews
+    : gearReviews.filter(item => item.category === selectedCategory);
+
+  const RatingBar = ({ rating }) => (
+    <div className="flex items-center gap-2">
+      <div className="flex-1 h-2 bg-stone-700 rounded-full overflow-hidden">
+        <div
+          className="h-full bg-gradient-to-r from-emerald-600 to-emerald-400"
+          style={{ width: `${rating * 10}%` }}
+        />
+      </div>
+      <span className="text-white font-bold text-lg w-8">{rating}</span>
+    </div>
+  );
+
+  return (
+    <div className="min-h-screen bg-stone-900 pt-24 pb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h1
+            className="text-5xl md:text-6xl font-bold text-white mb-4"
+            style={{ fontFamily: 'Bebas Neue, sans-serif' }}
+          >
+            Gear Reviews
+          </h1>
+          <p className="text-xl text-stone-400">
+            Honest reviews of the equipment that gets me up the mountain
+          </p>
+        </div>
+
+        {/* Category Filter */}
+        <Tabs defaultValue="All" className="mb-8">
+          <TabsList className="bg-stone-800 border border-stone-700">
+            {categories.map((category) => (
+              <TabsTrigger
+                key={category}
+                value={category}
+                onClick={() => setSelectedCategory(category)}
+                className="data-[state=active]:bg-emerald-600 data-[state=active]:text-white"
+              >
+                {category}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </Tabs>
+
+        {/* Gear Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredGear.map((gear) => (
+            <Card
+              key={gear.id}
+              className="bg-stone-800 border-stone-700 overflow-hidden hover:shadow-2xl hover:scale-[1.02] transition-all"
+            >
+              <div className="relative h-48 overflow-hidden group">
+                <img
+                  src={gear.image}
+                  alt={gear.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-900 to-transparent" />
+                <div className="absolute top-4 right-4">
+                  <div className="flex items-center gap-1 bg-emerald-600 px-3 py-1 rounded-full">
+                    <Star className="w-4 h-4 text-white fill-white" />
+                    <span className="text-white font-bold text-sm">{gear.rating}/10</span>
+                  </div>
+                </div>
+              </div>
+              <CardContent className="p-6">
+                <div className="inline-block px-3 py-1 bg-stone-700 text-emerald-500 text-xs font-semibold rounded-full mb-3">
+                  {gear.category}
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">{gear.name}</h3>
+                <div className="mb-4">
+                  <RatingBar rating={gear.rating} />
+                </div>
+                <p className="text-stone-300 text-sm mb-4 leading-relaxed line-clamp-3">
+                  {gear.review}
+                </p>
+                <div className="border-t border-stone-700 pt-4 mt-4">
+                  <div className="text-emerald-500 font-bold text-lg">${gear.price}</div>
+                </div>
+
+                {/* Pros and Cons */}
+                <div className="mt-4 space-y-2">
+                  <div>
+                    <div className="text-green-500 font-semibold text-xs mb-1">PROS</div>
+                    <ul className="text-stone-400 text-xs space-y-0.5">
+                      {gear.pros.slice(0, 2).map((pro, idx) => (
+                        <li key={idx}>• {pro}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <div className="text-red-400 font-semibold text-xs mb-1">CONS</div>
+                    <ul className="text-stone-400 text-xs space-y-0.5">
+                      {gear.cons.slice(0, 1).map((con, idx) => (
+                        <li key={idx}>• {con}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default GearReviews;
