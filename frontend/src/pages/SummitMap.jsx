@@ -43,8 +43,8 @@ const createCustomIcon = (color) => {
 };
 
 const greyIcon = createCustomIcon('#8B8680');
-const greenIcon = createCustomIcon('#22C55E');
-const purpleIcon = createCustomIcon('#A855F7');
+const greenIcon = createCustomIcon('#D97706'); // Amber-600 for planned
+const purpleIcon = createCustomIcon('#7C2D12'); // Burnt brown for dreams
 
 const MapController = ({ selectedSummit }) => {
   const map = useMap();
@@ -91,11 +91,11 @@ const SummitMap = () => {
               <span className="text-stone-300">Past Summits ({summits.past.length})</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded-full bg-green-500"></div>
+              <div className="w-4 h-4 rounded-full bg-amber-600"></div>
               <span className="text-stone-300">Planned ({summits.planned.length})</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded-full bg-purple-500"></div>
+              <div className="w-4 h-4 rounded-full bg-amber-900"></div>
               <span className="text-stone-300">Dreams ({summits.dreams.length})</span>
             </div>
           </div>
@@ -156,7 +156,7 @@ const SummitMap = () => {
                 style={{ backgroundImage: `url('${selectedSummit.image}')` }}
               />
               <CardContent className="p-6 flex flex-col justify-center">
-                <div className="inline-block px-3 py-1 bg-stone-700 text-emerald-500 text-sm font-semibold rounded-full mb-3 w-fit">
+                <div className="inline-block px-3 py-1 bg-stone-700 text-amber-700 text-sm font-semibold rounded-full mb-3 w-fit">
                   {selectedSummit.type === 'past' && 'CONQUERED'}
                   {selectedSummit.type === 'planned' && 'PLANNED'}
                   {selectedSummit.type === 'dream' && 'DREAM SUMMIT'}
@@ -169,16 +169,16 @@ const SummitMap = () => {
                 </h3>
                 <div className="space-y-3 mb-4">
                   <div className="flex items-center gap-2 text-stone-300">
-                    <MapPin className="w-5 h-5 text-emerald-500" />
+                    <MapPin className="w-5 h-5 text-amber-700" />
                     <span>{selectedSummit.location}</span>
                   </div>
                   <div className="flex items-center gap-2 text-stone-300">
-                    <TrendingUp className="w-5 h-5 text-emerald-500" />
+                    <TrendingUp className="w-5 h-5 text-amber-700" />
                     <span>{selectedSummit.elevation.toLocaleString()} feet</span>
                   </div>
                   {selectedSummit.date && (
                     <div className="flex items-center gap-2 text-stone-300">
-                      <Calendar className="w-5 h-5 text-emerald-500" />
+                      <Calendar className="w-5 h-5 text-amber-700" />
                       <span>
                         {new Date(selectedSummit.date).toLocaleDateString('en-US', {
                           month: 'long',
@@ -190,7 +190,7 @@ const SummitMap = () => {
                   )}
                 </div>
                 {selectedSummit.difficulty && (
-                  <div className="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-500 text-sm font-semibold rounded-full mb-4 w-fit">
+                  <div className="inline-block px-3 py-1 bg-amber-700/20 text-amber-700 text-sm font-semibold rounded-full mb-4 w-fit">
                     {selectedSummit.difficulty}
                   </div>
                 )}
@@ -227,7 +227,7 @@ const SummitMap = () => {
 
           <div>
             <h3
-              className="text-2xl font-bold text-green-500 mb-4"
+              className="text-2xl font-bold text-amber-600 mb-4"
               style={{ fontFamily: 'Bebas Neue, sans-serif' }}
             >
               Planned

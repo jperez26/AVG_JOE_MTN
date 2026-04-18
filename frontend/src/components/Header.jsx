@@ -36,7 +36,7 @@ const Header = () => {
           <Link to="/" className="flex items-center gap-3 group">
             {/* Annapurna outline SVG */}
             <svg
-              className="w-10 h-10 text-emerald-500 group-hover:text-emerald-400 transition-colors"
+              className="w-10 h-10 text-amber-700 group-hover:text-amber-600 transition-colors"
               viewBox="0 0 100 100"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +69,7 @@ const Header = () => {
                 className={`text-sm font-medium transition-colors relative ${
                   isActive(link.path)
                     ? 'text-white'
-                    : 'text-emerald-500 hover:text-white'
+                    : 'text-amber-700 hover:text-white'
                 }`}
               >
                 {link.label}
@@ -81,7 +81,7 @@ const Header = () => {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="text-emerald-500 hover:text-white hover:bg-stone-800"
+              className="text-amber-700 hover:text-white hover:bg-stone-800"
             >
               {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </Button>
@@ -93,7 +93,7 @@ const Header = () => {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="text-emerald-500 hover:text-white"
+              className="text-amber-700 hover:text-white"
             >
               {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </Button>
@@ -109,7 +109,7 @@ const Header = () => {
               className={`text-xs font-medium transition-colors ${
                 isActive(link.path)
                   ? 'text-white'
-                  : 'text-emerald-500 hover:text-white'
+                  : 'text-amber-700 hover:text-white'
               }`}
             >
               {link.label}

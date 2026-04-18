@@ -50,7 +50,7 @@ const FuturePeaks = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-stone-900 to-transparent" />
                   <div className="absolute top-4 right-4">
-                    <div className="px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full">
+                    <div className="px-3 py-1 bg-amber-600 text-white text-xs font-bold rounded-full">
                       PLANNED
                     </div>
                   </div>
@@ -64,19 +64,19 @@ const FuturePeaks = () => {
                   </h3>
                   <div className="space-y-2 mb-4">
                     <div className="flex items-center gap-2 text-stone-400 text-sm">
-                      <MapPin className="w-4 h-4 text-green-500" />
+                      <MapPin className="w-4 h-4 text-amber-600" />
                       <span>{summit.location}</span>
                     </div>
                     <div className="flex items-center gap-2 text-stone-400 text-sm">
-                      <TrendingUp className="w-4 h-4 text-green-500" />
+                      <TrendingUp className="w-4 h-4 text-amber-600" />
                       <span>{summit.elevation.toLocaleString()} feet</span>
                     </div>
                     <div className="flex items-center gap-2 text-stone-400 text-sm">
-                      <Calendar className="w-4 h-4 text-green-500" />
+                      <Calendar className="w-4 h-4 text-amber-600" />
                       <span>{new Date(summit.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</span>
                     </div>
                   </div>
-                  <div className="inline-block px-3 py-1 bg-stone-700 text-green-500 text-xs font-semibold rounded-full mb-3">
+                  <div className="inline-block px-3 py-1 bg-stone-700 text-amber-600 text-xs font-semibold rounded-full mb-3">
                     {summit.difficulty}
                   </div>
                   <p className="text-stone-300 text-sm leading-relaxed">
@@ -103,7 +103,7 @@ const FuturePeaks = () => {
             {summits.dreams.map((summit) => (
               <Card
                 key={summit.id}
-                className="bg-gradient-to-br from-purple-900/30 to-stone-800 border-purple-700/50 overflow-hidden hover:shadow-2xl hover:shadow-purple-900/50 transition-all group"
+                className="bg-gradient-to-br from-amber-900/30 to-stone-800 border-amber-800/50 overflow-hidden hover:shadow-2xl hover:shadow-amber-900/50 transition-all group"
               >
                 <div className="grid md:grid-cols-2">
                   <div className="relative h-64 md:h-auto overflow-hidden">
@@ -112,10 +112,10 @@ const FuturePeaks = () => {
                       alt={summit.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-purple-900/50" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-amber-900/50" />
                   </div>
                   <CardContent className="p-6 flex flex-col justify-center">
-                    <div className="px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-bold rounded-full mb-3 w-fit">
+                    <div className="px-3 py-1 bg-amber-700/20 text-amber-600 text-xs font-bold rounded-full mb-3 w-fit">
                       DREAM SUMMIT
                     </div>
                     <h3
@@ -126,15 +126,15 @@ const FuturePeaks = () => {
                     </h3>
                     <div className="space-y-2 mb-4">
                       <div className="flex items-center gap-2 text-stone-300 text-sm">
-                        <MapPin className="w-4 h-4 text-purple-400" />
+                        <MapPin className="w-4 h-4 text-amber-600" />
                         <span>{summit.location}</span>
                       </div>
                       <div className="flex items-center gap-2 text-stone-300 text-sm">
-                        <TrendingUp className="w-4 h-4 text-purple-400" />
+                        <TrendingUp className="w-4 h-4 text-amber-600" />
                         <span>{summit.elevation.toLocaleString()} feet</span>
                       </div>
                     </div>
-                    <div className="inline-block px-3 py-1 bg-stone-700 text-purple-400 text-xs font-semibold rounded-full mb-3">
+                    <div className="inline-block px-3 py-1 bg-stone-700 text-amber-600 text-xs font-semibold rounded-full mb-3">
                       {summit.difficulty}
                     </div>
                     <p className="text-stone-300 text-sm leading-relaxed">

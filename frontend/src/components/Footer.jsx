@@ -24,7 +24,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <Mountain className="w-8 h-8 text-emerald-500" />
+              <Mountain className="w-8 h-8 text-amber-700" />
               <div className="flex flex-col">
                 <span className="text-white font-bold text-lg leading-tight" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
                   AVERAGE JOE
@@ -40,7 +40,7 @@ const Footer = () => {
             <div className="flex gap-4">
               <a
                 href="mailto:contact@averagejoeclimbing.com"
-                className="text-stone-400 hover:text-emerald-500 transition-colors"
+                className="text-stone-400 hover:text-amber-700 transition-colors"
                 aria-label="Email"
               >
                 <Mail className="w-5 h-5" />
@@ -49,7 +49,7 @@ const Footer = () => {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-stone-400 hover:text-emerald-500 transition-colors"
+                className="text-stone-400 hover:text-amber-700 transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
@@ -58,7 +58,7 @@ const Footer = () => {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-stone-400 hover:text-emerald-500 transition-colors"
+                className="text-stone-400 hover:text-amber-700 transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
@@ -73,27 +73,27 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/past-summits" className="text-stone-400 hover:text-emerald-500 transition-colors text-sm">
+                <Link to="/past-summits" className="text-stone-400 hover:text-amber-700 transition-colors text-sm">
                   Past Summits
                 </Link>
               </li>
               <li>
-                <Link to="/future-peaks" className="text-stone-400 hover:text-emerald-500 transition-colors text-sm">
+                <Link to="/future-peaks" className="text-stone-400 hover:text-amber-700 transition-colors text-sm">
                   Future Peaks
                 </Link>
               </li>
               <li>
-                <Link to="/map" className="text-stone-400 hover:text-emerald-500 transition-colors text-sm">
+                <Link to="/map" className="text-stone-400 hover:text-amber-700 transition-colors text-sm">
                   Summit Map
                 </Link>
               </li>
               <li>
-                <Link to="/gear" className="text-stone-400 hover:text-emerald-500 transition-colors text-sm">
+                <Link to="/gear" className="text-stone-400 hover:text-amber-700 transition-colors text-sm">
                   Gear Reviews
                 </Link>
               </li>
               <li>
-                <Link to="/gallery" className="text-stone-400 hover:text-emerald-500 transition-colors text-sm">
+                <Link to="/gallery" className="text-stone-400 hover:text-amber-700 transition-colors text-sm">
                   Photo Gallery
                 </Link>
               </li>
@@ -107,15 +107,15 @@ const Footer = () => {
             </h3>
             <div className="space-y-3">
               <div>
-                <div className="text-emerald-500 text-2xl font-bold" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>2</div>
+                <div className="text-amber-700 text-2xl font-bold" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>2</div>
                 <div className="text-stone-400 text-sm">Summits Conquered</div>
               </div>
               <div>
-                <div className="text-emerald-500 text-2xl font-bold" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>17,537 ft</div>
+                <div className="text-amber-700 text-2xl font-bold" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>17,537 ft</div>
                 <div className="text-stone-400 text-sm">Total Elevation Climbed</div>
               </div>
               <div>
-                <div className="text-emerald-500 text-2xl font-bold" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>6</div>
+                <div className="text-amber-700 text-2xl font-bold" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>6</div>
                 <div className="text-stone-400 text-sm">Peaks Planned</div>
               </div>
             </div>
@@ -125,7 +125,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-stone-800 text-center text-stone-400 text-sm">
           <p>&copy; {new Date().getFullYear()} Average Joe Mountaineering. All rights reserved.</p>
-          <p className="mt-2 text-emerald-500 italic">"Get Out There"</p>
+          <p className="mt-2 text-amber-700 italic">"Get Out There"</p>
         </div>
       </div>
     </footer>

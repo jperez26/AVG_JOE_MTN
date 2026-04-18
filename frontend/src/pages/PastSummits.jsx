@@ -36,7 +36,7 @@ const PastSummits = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-stone-900 to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4">
-                      <div className="inline-block px-3 py-1 bg-stone-700/80 text-emerald-500 text-sm font-semibold rounded-full mb-2">
+                      <div className="inline-block px-3 py-1 bg-stone-700/80 text-amber-700 text-sm font-semibold rounded-full mb-2">
                         {summit.difficulty}
                       </div>
                       <h3
@@ -50,22 +50,22 @@ const PastSummits = () => {
                   <CardContent className="p-6">
                     <div className="space-y-3">
                       <div className="flex items-center gap-2 text-stone-400">
-                        <MapPin className="w-4 h-4 text-emerald-500" />
+                        <MapPin className="w-4 h-4 text-amber-700" />
                         <span>{summit.location}</span>
                       </div>
                       <div className="flex items-center gap-2 text-stone-400">
-                        <TrendingUp className="w-4 h-4 text-emerald-500" />
+                        <TrendingUp className="w-4 h-4 text-amber-700" />
                         <span>{summit.elevation.toLocaleString()} feet</span>
                       </div>
                       <div className="flex items-center gap-2 text-stone-400">
-                        <Calendar className="w-4 h-4 text-emerald-500" />
+                        <Calendar className="w-4 h-4 text-amber-700" />
                         <span>{new Date(summit.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
                       </div>
                     </div>
                     <p className="text-stone-300 mt-4 line-clamp-3">
                       {summit.story}
                     </p>
-                    <Button className="w-full mt-4 bg-emerald-600 hover:bg-emerald-700 text-white">
+                    <Button className="w-full mt-4 bg-amber-800 hover:bg-amber-900 text-white">
                       Read Full Story
                     </Button>
                   </CardContent>
@@ -100,17 +100,17 @@ const PastSummits = () => {
                     </div>
                   </div>
 
-                  <div className="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-500 text-sm font-semibold rounded-full">
+                  <div className="inline-block px-3 py-1 bg-amber-700/20 text-amber-700 text-sm font-semibold rounded-full">
                     {summit.difficulty}
                   </div>
 
                   <div>
-                    <h4 className="text-xl font-bold mb-3 text-emerald-500">The Story</h4>
+                    <h4 className="text-xl font-bold mb-3 text-amber-700">The Story</h4>
                     <p className="text-stone-300 leading-relaxed">{summit.story}</p>
                   </div>
 
                   <div>
-                    <h4 className="text-xl font-bold mb-3 text-emerald-500">Photos</h4>
+                    <h4 className="text-xl font-bold mb-3 text-amber-700">Photos</h4>
                     <div className="grid grid-cols-2 gap-4">
                       {summit.photos.map((photo, idx) => (
                         <img

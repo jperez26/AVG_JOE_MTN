@@ -37,8 +37,8 @@ const createCustomIcon = (color) => {
 };
 
 const greyIcon = createCustomIcon('#8B8680');
-const greenIcon = createCustomIcon('#22C55E');
-const purpleIcon = createCustomIcon('#A855F7');
+const greenIcon = createCustomIcon('#D97706'); // Amber-600
+const purpleIcon = createCustomIcon('#7C2D12'); // Burnt brown
 
 const Home = () => {
   const latestSummit = summits.past[summits.past.length - 1];
@@ -58,7 +58,7 @@ const Home = () => {
         </div>
 
         <div className="relative z-10 text-center px-4 max-w-4xl">
-          <Mountain className="w-16 h-16 text-emerald-500 mx-auto mb-6 animate-pulse" />
+          <Mountain className="w-16 h-16 text-amber-700 mx-auto mb-6 animate-pulse" />
           <h1
             className="text-6xl md:text-8xl font-bold text-white mb-4 tracking-wider"
             style={{ fontFamily: 'Bebas Neue, sans-serif' }}
@@ -70,7 +70,7 @@ const Home = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/past-summits">
-              <Button className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-6 text-lg">
+              <Button className="bg-amber-800 hover:bg-amber-900 text-white px-8 py-6 text-lg">
                 Explore Summits
               </Button>
             </Link>
@@ -110,11 +110,11 @@ const Home = () => {
               <span className="text-stone-300">Past Summits ({summits.past.length})</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded-full bg-green-500"></div>
+              <div className="w-4 h-4 rounded-full bg-amber-600"></div>
               <span className="text-stone-300">Planned ({summits.planned.length})</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded-full bg-purple-500"></div>
+              <div className="w-4 h-4 rounded-full bg-amber-900"></div>
               <span className="text-stone-300">Dreams ({summits.dreams.length})</span>
             </div>
           </div>
@@ -198,7 +198,7 @@ const Home = () => {
 
           <div className="text-center mt-8">
             <Link to="/map">
-              <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">
+              <Button className="bg-amber-800 hover:bg-amber-900 text-white">
                 View Full Map
               </Button>
             </Link>
@@ -211,28 +211,28 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <Award className="w-12 h-12 text-emerald-500 mx-auto mb-4" />
+              <Award className="w-12 h-12 text-amber-700 mx-auto mb-4" />
               <div className="text-4xl font-bold text-white mb-2" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
                 {stats.totalSummits}
               </div>
               <div className="text-stone-400">Summits Conquered</div>
             </div>
             <div className="text-center">
-              <TrendingUp className="w-12 h-12 text-emerald-500 mx-auto mb-4" />
+              <TrendingUp className="w-12 h-12 text-amber-700 mx-auto mb-4" />
               <div className="text-4xl font-bold text-white mb-2" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
                 {stats.totalElevation.toLocaleString()}
               </div>
               <div className="text-stone-400">Feet Climbed</div>
             </div>
             <div className="text-center">
-              <Calendar className="w-12 h-12 text-emerald-500 mx-auto mb-4" />
+              <Calendar className="w-12 h-12 text-amber-700 mx-auto mb-4" />
               <div className="text-4xl font-bold text-white mb-2" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
                 {stats.plannedPeaks}
               </div>
               <div className="text-stone-400">Peaks Planned</div>
             </div>
             <div className="text-center">
-              <Mountain className="w-12 h-12 text-emerald-500 mx-auto mb-4" />
+              <Mountain className="w-12 h-12 text-amber-700 mx-auto mb-4" />
               <div className="text-4xl font-bold text-white mb-2" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
                 {stats.dreamPeaks}
               </div>
@@ -258,7 +258,7 @@ const Home = () => {
                 style={{ backgroundImage: `url('${latestSummit.image}')` }}
               />
               <CardContent className="p-8 flex flex-col justify-center">
-                <div className="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-500 text-sm font-semibold rounded-full mb-4 w-fit">
+                <div className="inline-block px-3 py-1 bg-amber-700/20 text-amber-700 text-sm font-semibold rounded-full mb-4 w-fit">
                   {latestSummit.difficulty}
                 </div>
                 <h3
@@ -274,7 +274,7 @@ const Home = () => {
                   {latestSummit.story.substring(0, 200)}...
                 </p>
                 <Link to="/past-summits">
-                  <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">
+                  <Button className="bg-amber-800 hover:bg-amber-900 text-white">
                     Read Full Story
                   </Button>
                 </Link>
@@ -296,7 +296,7 @@ const Home = () => {
           <Card className="bg-stone-900 border-stone-700 overflow-hidden">
             <div className="grid md:grid-cols-2">
               <CardContent className="p-8 flex flex-col justify-center order-2 md:order-1">
-                <div className="inline-block px-3 py-1 bg-green-500/20 text-green-500 text-sm font-semibold rounded-full mb-4 w-fit">
+                <div className="inline-block px-3 py-1 bg-amber-600/20 text-amber-600 text-sm font-semibold rounded-full mb-4 w-fit">
                   Planned • July 2025
                 </div>
                 <h3
@@ -312,7 +312,7 @@ const Home = () => {
                   {nextPeak.description}
                 </p>
                 <Link to="/future-peaks">
-                  <Button variant="outline" className="border-emerald-500 text-emerald-500 hover:bg-emerald-500 hover:text-white">
+                  <Button variant="outline" className="border-amber-700 text-amber-700 hover:bg-amber-700 hover:text-white">
                     View All Future Peaks
                   </Button>
                 </Link>
@@ -330,11 +330,11 @@ const Home = () => {
       <section className="py-20 bg-gradient-to-br from-stone-900 to-stone-800 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path d="M0,50 Q25,30 50,50 T100,50 L100,100 L0,100 Z" fill="currentColor" className="text-emerald-900" />
+            <path d="M0,50 Q25,30 50,50 T100,50 L100,100 L0,100 Z" fill="currentColor" className="text-amber-950" />
           </svg>
         </div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <Mountain className="w-16 h-16 text-emerald-500 mx-auto mb-6" />
+          <Mountain className="w-16 h-16 text-amber-700 mx-auto mb-6" />
           <h2
             className="text-4xl md:text-5xl font-bold text-white mb-6"
             style={{ fontFamily: 'Bebas Neue, sans-serif' }}
@@ -346,7 +346,7 @@ const Home = () => {
             Every summit has a story, every climb a lesson.
           </p>
           <Link to="/gallery">
-            <Button className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-6 text-lg">
+            <Button className="bg-amber-800 hover:bg-amber-900 text-white px-8 py-6 text-lg">
               View Photo Gallery
             </Button>
           </Link>

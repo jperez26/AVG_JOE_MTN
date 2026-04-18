@@ -10,12 +10,12 @@ export const summits = {
       date: '2024-08-15',
       difficulty: 'Intermediate',
       story: 'My first major summit! The climb up Mt. Hood tested my endurance and willpower. Starting at 1 AM, we navigated the Pearly Gates in the dark, using headlamps and crampons. The sunrise at the summit was absolutely breathtaking - watching the shadow of the mountain stretch across the landscape below. The wind was fierce at the top, but the sense of accomplishment was worth every frozen moment.',
-      image: 'https://images.unsplash.com/photo-1626289027460-d0c7d604d3ed',
+      image: 'https://images.unsplash.com/photo-1755643841166-00854b3961fe',
       coords: [45.3736, -121.6960],
       photos: [
-        'https://images.unsplash.com/photo-1626289027460-d0c7d604d3ed',
-        'https://images.unsplash.com/photo-1505887837284-44dc0a2c058b',
-        'https://images.unsplash.com/photo-1588973046899-21ad07fbc507'
+        'https://images.unsplash.com/photo-1755643841166-00854b3961fe',
+        'https://images.unsplash.com/photo-1559189975-db284c1d94d5',
+        'https://images.unsplash.com/photo-1745780898016-cd73238ef78e'
       ]
     },
     {
@@ -30,8 +30,8 @@ export const summits = {
       coords: [44.2706, -71.3033],
       photos: [
         'https://images.unsplash.com/photo-1745780898016-cd73238ef78e',
-        'https://images.unsplash.com/photo-1626289027460-d0c7d604d3ed',
-        'https://images.unsplash.com/photo-1505887837284-44dc0a2c058b'
+        'https://images.unsplash.com/photo-1755643841166-00854b3961fe',
+        'https://images.unsplash.com/photo-1559189975-db284c1d94d5'
       ]
     }
   ],
@@ -44,7 +44,7 @@ export const summits = {
       date: '2025-07-15',
       difficulty: 'Intermediate',
       description: 'A dormant volcano and iconic California peak. Planning to climb via Avalanche Gulch route.',
-      image: 'https://images.unsplash.com/photo-1601502200081-b85beca6e0c1',
+      image: 'https://images.unsplash.com/photo-1602130707301-2f09f9d68179',
       coords: [41.4093, -122.1949]
     },
     {
@@ -55,7 +55,7 @@ export const summits = {
       date: '2025-09-10',
       difficulty: 'Intermediate',
       description: 'Heavily glaciated volcano with stunning ice formations. Targeting the Coleman-Deming route.',
-      image: 'https://images.unsplash.com/photo-1659910308917-6908eea51227',
+      image: 'https://images.unsplash.com/photo-1693324646233-8c9772e90e88',
       coords: [48.7767, -121.8144]
     },
     {
@@ -66,7 +66,7 @@ export const summits = {
       date: '2027-08-01',
       difficulty: 'Advanced',
       description: 'The ultimate Pacific Northwest challenge. Technical glaciated climb with significant elevation gain.',
-      image: 'https://images.unsplash.com/photo-1599551528722-6b6d968512a2',
+      image: 'https://images.unsplash.com/photo-1632758130486-36f6c4994f83',
       coords: [46.8523, -121.7603]
     },
     {
@@ -77,7 +77,7 @@ export const summits = {
       date: '2027-01-15',
       difficulty: 'Advanced',
       description: 'Part of the Bolivian Triple Crown. High altitude acclimatization challenge.',
-      image: 'https://images.unsplash.com/photo-1575143367176-df82a0d4ff48',
+      image: 'https://images.unsplash.com/photo-1667398098408-9d3b827c278c',
       coords: [-16.2667, -68.1500]
     },
     {
@@ -88,7 +88,7 @@ export const summits = {
       date: '2027-01-22',
       difficulty: 'Advanced',
       description: 'Second peak of the Bolivian Triple Crown. Technical climbing at extreme altitude.',
-      image: 'https://images.unsplash.com/photo-1762662313299-9cc7d3e297be',
+      image: 'https://images.unsplash.com/photo-1712183102279-321f6fd304a5',
       coords: [-16.6333, -67.7833]
     },
     {
@@ -99,7 +99,7 @@ export const summits = {
       date: '2027-01-29',
       difficulty: 'Advanced',
       description: 'Final peak of the Bolivian Triple Crown. Stunning ice and rock climbing.',
-      image: 'https://images.unsplash.com/photo-1515310787031-25ac2d68610d',
+      image: 'https://images.unsplash.com/photo-1592345570588-95104ccbc3d6',
       coords: [-16.0167, -68.3500]
     }
   ],
@@ -111,8 +111,28 @@ export const summits = {
       location: 'Nepal',
       difficulty: 'Expert',
       description: 'The ultimate goal. One of the most dangerous 8000m peaks with the highest fatality rate.',
-      image: 'https://images.unsplash.com/photo-1575143367176-df82a0d4ff48',
+      image: 'https://images.unsplash.com/photo-1617395547071-98efcee72011',
       coords: [28.5960, 83.8203]
+    },
+    {
+      id: 'denali',
+      name: 'Denali',
+      elevation: 20310,
+      location: 'Alaska, USA',
+      difficulty: 'Expert',
+      description: 'North America\'s highest peak. Extreme cold, altitude, and weather make this a true test of mountaineering skill.',
+      image: 'https://images.unsplash.com/photo-1704746375215-1c9234a6d5bb',
+      coords: [63.0695, -151.0074]
+    },
+    {
+      id: 'matterhorn',
+      name: 'Matterhorn',
+      elevation: 14692,
+      location: 'Switzerland/Italy',
+      difficulty: 'Expert',
+      description: 'The iconic pyramid peak of the Alps. Technical rock climbing with significant exposure and objective hazards.',
+      image: 'https://images.unsplash.com/photo-1710762635062-13bd1259cd18',
+      coords: [45.9763, 7.6586]
     },
     {
       id: 'aconcagua',
@@ -121,7 +141,7 @@ export const summits = {
       location: 'Argentina',
       difficulty: 'Advanced',
       description: 'Highest peak in South America. Non-technical but extreme altitude challenge.',
-      image: 'https://images.unsplash.com/photo-1762662313299-9cc7d3e297be',
+      image: 'https://images.unsplash.com/photo-1721614146624-7a6252b92754',
       coords: [-32.6532, -70.0109]
     },
     {
@@ -131,7 +151,7 @@ export const summits = {
       location: 'Pakistan/China',
       difficulty: 'Expert',
       description: 'The Savage Mountain. Second highest peak in the world and arguably the most difficult.',
-      image: 'https://images.unsplash.com/photo-1601502200081-b85beca6e0c1',
+      image: 'https://images.unsplash.com/photo-1704746375211-e7c88ab4ad0d',
       coords: [35.8825, 76.5133]
     },
     {
@@ -141,7 +161,7 @@ export const summits = {
       location: 'Pakistan',
       difficulty: 'Expert',
       description: 'The Killer Mountain. Ninth highest peak with one of the most dramatic vertical reliefs.',
-      image: 'https://images.unsplash.com/photo-1599551528722-6b6d968512a2',
+      image: 'https://images.unsplash.com/photo-1710762634710-a943bc712cc6',
       coords: [35.2372, 74.5894]
     }
   ]
@@ -155,7 +175,7 @@ export const gearReviews = [
     rating: 9,
     review: 'Solid, reliable ice axe perfect for general mountaineering. Used it on both Hood and Washington with excellent performance. The pick holds well in various snow conditions.',
     price: 89.95,
-    image: 'https://images.unsplash.com/photo-1626289027460-d0c7d604d3ed',
+    image: 'https://images.unsplash.com/photo-1755643841166-00854b3961fe',
     pros: ['Durable construction', 'Great grip', 'Perfect length'],
     cons: ['Slightly heavy for technical climbing']
   },
@@ -166,7 +186,7 @@ export const gearReviews = [
     rating: 10,
     review: 'Best mountaineering boots I\'ve ever owned. Waterproof, warm, and compatible with automatic crampons. Broke in quickly and no blisters even on long approaches.',
     price: 599.00,
-    image: 'https://images.unsplash.com/photo-1505887837284-44dc0a2c058b',
+    image: 'https://images.unsplash.com/photo-1559189975-db284c1d94d5',
     pros: ['Excellent warmth', 'Great ankle support', 'Waterproof'],
     cons: ['Expensive', 'Heavy for backpacking']
   },
@@ -177,7 +197,7 @@ export const gearReviews = [
     rating: 8,
     review: 'Lightweight and comfortable for all-day wear. Good ventilation. Provides solid protection without feeling bulky.',
     price: 89.95,
-    image: 'https://images.unsplash.com/photo-1588973046899-21ad07fbc507',
+    image: 'https://images.unsplash.com/photo-1745780898016-cd73238ef78e',
     pros: ['Lightweight', 'Comfortable', 'Good ventilation'],
     cons: ['Adjustment system could be better']
   },
@@ -188,7 +208,7 @@ export const gearReviews = [
     rating: 9,
     review: 'Kept my hands warm in brutal conditions on Mt. Washington. Waterproof shell with removable liner is perfect for varying conditions.',
     price: 149.00,
-    image: 'https://images.unsplash.com/photo-1745780898016-cd73238ef78e',
+    image: 'https://images.unsplash.com/photo-1632758130486-36f6c4994f83',
     pros: ['Very warm', 'Waterproof', 'Removable liner'],
     cons: ['Bulky for technical climbing']
   },
@@ -199,7 +219,7 @@ export const gearReviews = [
     rating: 7,
     review: 'Compact and lightweight. Boils water quickly at lower elevations but struggled above 10,000 feet. Good for weekend trips.',
     price: 44.95,
-    image: 'https://images.unsplash.com/photo-1601502200081-b85beca6e0c1',
+    image: 'https://images.unsplash.com/photo-1602130707301-2f09f9d68179',
     pros: ['Lightweight', 'Compact', 'Fast boil time'],
     cons: ['Poor high-altitude performance', 'Unstable with large pots']
   },
@@ -210,7 +230,7 @@ export const gearReviews = [
     rating: 10,
     review: 'Worth every penny. This jacket has saved me in some gnarly weather. Bombproof Gore-Tex, perfect fit, and features exactly where you need them.',
     price: 825.00,
-    image: 'https://images.unsplash.com/photo-1659910308917-6908eea51227',
+    image: 'https://images.unsplash.com/photo-1693324646233-8c9772e90e88',
     pros: ['Completely waterproof', 'Durable', 'Perfect fit'],
     cons: ['Very expensive', 'Overkill for casual hiking']
   }
@@ -219,63 +239,63 @@ export const gearReviews = [
 export const galleryPhotos = [
   {
     id: 1,
-    src: 'https://images.unsplash.com/photo-1626289027460-d0c7d604d3ed',
+    src: 'https://images.unsplash.com/photo-1755643841166-00854b3961fe',
     summit: 'Mt. Hood',
     caption: 'Sunrise at 11,249 feet'
   },
   {
     id: 2,
-    src: 'https://images.unsplash.com/photo-1505887837284-44dc0a2c058b',
+    src: 'https://images.unsplash.com/photo-1559189975-db284c1d94d5',
     summit: 'Mt. Hood',
     caption: 'Summit victory above the clouds'
   },
   {
     id: 3,
-    src: 'https://images.unsplash.com/photo-1588973046899-21ad07fbc507',
-    summit: 'Mt. Hood',
-    caption: 'Golden hour descent'
-  },
-  {
-    id: 4,
     src: 'https://images.unsplash.com/photo-1745780898016-cd73238ef78e',
     summit: 'Mt. Washington',
     caption: 'Winter conditions on Mt. Washington'
   },
   {
-    id: 5,
-    src: 'https://images.unsplash.com/photo-1601502200081-b85beca6e0c1',
+    id: 4,
+    src: 'https://images.unsplash.com/photo-1602130707301-2f09f9d68179',
     summit: 'Mt. Shasta',
     caption: 'Mt. Shasta from the approach'
   },
   {
-    id: 6,
-    src: 'https://images.unsplash.com/photo-1659910308917-6908eea51227',
+    id: 5,
+    src: 'https://images.unsplash.com/photo-1693324646233-8c9772e90e88',
     summit: 'Mt. Baker',
     caption: 'Glaciated beauty of Mt. Baker'
   },
   {
-    id: 7,
-    src: 'https://images.unsplash.com/photo-1599551528722-6b6d968512a2',
+    id: 6,
+    src: 'https://images.unsplash.com/photo-1632758130486-36f6c4994f83',
     summit: 'Mt. Rainier',
     caption: 'The crown jewel of the Cascades'
   },
   {
+    id: 7,
+    src: 'https://images.unsplash.com/photo-1704746375215-1c9234a6d5bb',
+    summit: 'Denali',
+    caption: 'Denali - North America\'s highest'
+  },
+  {
     id: 8,
-    src: 'https://images.unsplash.com/photo-1515310787031-25ac2d68610d',
-    summit: 'Bolivia',
-    caption: 'Bolivian peaks awaiting'
+    src: 'https://images.unsplash.com/photo-1710762635062-13bd1259cd18',
+    summit: 'Matterhorn',
+    caption: 'The iconic Matterhorn'
   },
   {
     id: 9,
-    src: 'https://images.unsplash.com/photo-1575143367176-df82a0d4ff48',
+    src: 'https://images.unsplash.com/photo-1617395547071-98efcee72011',
     summit: 'Himalayas',
     caption: 'Himalayan giants'
   },
   {
     id: 10,
-    src: 'https://images.unsplash.com/photo-1762662313299-9cc7d3e297be',
-    summit: 'Himalayas',
-    caption: 'Peak perfection'
+    src: 'https://images.unsplash.com/photo-1721614146624-7a6252b92754',
+    summit: 'Aconcagua',
+    caption: 'Aconcagua summit push'
   }
 ];
 
@@ -283,5 +303,5 @@ export const stats = {
   totalSummits: 2,
   totalElevation: 17537,
   plannedPeaks: 6,
-  dreamPeaks: 4
+  dreamPeaks: 6
 };

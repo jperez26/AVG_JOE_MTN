@@ -9,7 +9,7 @@ const Gallery = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <Camera className="w-12 h-12 text-emerald-500 mx-auto mb-4" />
+          <Camera className="w-12 h-12 text-amber-700 mx-auto mb-4" />
           <h1
             className="text-5xl md:text-6xl font-bold text-white mb-4"
             style={{ fontFamily: 'Bebas Neue, sans-serif' }}
@@ -34,7 +34,7 @@ const Gallery = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                     <div className="absolute bottom-4 left-4 right-4">
-                      <div className="text-emerald-500 text-xs font-bold mb-1">{photo.summit}</div>
+                      <div className="text-amber-700 text-xs font-bold mb-1">{photo.summit}</div>
                       <div className="text-white text-sm">{photo.caption}</div>
                     </div>
                   </div>
@@ -49,7 +49,7 @@ const Gallery = () => {
                     className="w-full h-auto max-h-[90vh] object-contain"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-stone-900 to-transparent p-6">
-                    <div className="text-emerald-500 font-bold mb-1" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
+                    <div className="text-amber-700 font-bold mb-1" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
                       {photo.summit}
                     </div>
                     <div className="text-white text-lg">{photo.caption}</div>
