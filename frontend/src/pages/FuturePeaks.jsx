@@ -11,7 +11,7 @@ const FuturePeaks = () => {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1650275536755-c3f78da9e0a8?crop=entropy&cs=srgb&fm=jpg&q=85')`,
+            backgroundImage: `url('https://images.unsplash.com/photo-1575143367176-df82a0d4ff48')`,
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-stone-900/70 via-stone-900/50 to-stone-900" />
@@ -24,9 +24,6 @@ const FuturePeaks = () => {
           >
             Future Peaks
           </h1>
-          <p className="text-xl text-stone-300">
-            The mountains calling my name
-          </p>
         </div>
       </section>
 

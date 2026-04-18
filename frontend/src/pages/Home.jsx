@@ -4,6 +4,41 @@ import { Mountain, TrendingUp, Award, Calendar } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { summits, stats } from '../mock';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+
+// Custom marker icons
+const createCustomIcon = (color) => {
+  return L.divIcon({
+    className: 'custom-marker',
+    html: `<div style="
+      background-color: ${color};
+      width: 30px;
+      height: 30px;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      border: 3px solid white;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    "><div style="
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      width: 10px;
+      height: 10px;
+      background-color: white;
+      border-radius: 50%;
+    "></div></div>`,
+    iconSize: [30, 30],
+    iconAnchor: [15, 30],
+    popupAnchor: [0, -30]
+  });
+};
+
+const greyIcon = createCustomIcon('#8B8680');
+const greenIcon = createCustomIcon('#22C55E');
+const purpleIcon = createCustomIcon('#A855F7');
 
 const Home = () => {
   const latestSummit = summits.past[summits.past.length - 1];
@@ -16,7 +51,7 @@ const Home = () => {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1650275536755-c3f78da9e0a8?crop=entropy&cs=srgb&fm=jpg&q=85')`,
+            backgroundImage: `url('https://images.unsplash.com/photo-1575143367176-df82a0d4ff48')`,
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-stone-900/70 via-stone-900/50 to-stone-900" />
@@ -51,6 +86,122 @@ const Home = () => {
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
             <div className="w-1.5 h-3 bg-white/50 rounded-full mt-2" />
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Map Section */}
+      <section className="py-20 bg-stone-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            className="text-4xl md:text-5xl font-bold text-white mb-4 text-center"
+            style={{ fontFamily: 'Bebas Neue, sans-serif' }}
+          >
+            Summit Map
+          </h2>
+          <p className="text-xl text-stone-400 mb-8 text-center">
+            Tracking my mountaineering journey across the globe
+          </p>
+
+          {/* Legend */}
+          <div className="flex justify-center gap-6 text-sm mb-6">
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded-full bg-stone-500"></div>
+              <span className="text-stone-300">Past Summits ({summits.past.length})</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded-full bg-green-500"></div>
+              <span className="text-stone-300">Planned ({summits.planned.length})</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded-full bg-purple-500"></div>
+              <span className="text-stone-300">Dreams ({summits.dreams.length})</span>
+            </div>
+          </div>
+
+          {/* Map */}
+          <Card className="bg-stone-800 border-stone-700 overflow-hidden">
+            <CardContent className="p-0">
+              <div className="h-[500px] w-full">
+                <MapContainer
+                  center={[35, 0]}
+                  zoom={2}
+                  scrollWheelZoom={true}
+                  className="h-full w-full"
+                  style={{ background: '#1c1917' }}
+                >
+                  <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
+                  {summits.past.map((summit) => (
+                    <Marker
+                      key={summit.id}
+                      position={summit.coords}
+                      icon={greyIcon}
+                    >
+                      <Popup>
+                        <div className="min-w-[200px]">
+                          <h3 className="font-bold text-lg mb-1">{summit.name}</h3>
+                          <p className="text-sm text-gray-600 mb-2">{summit.location}</p>
+                          <p className="text-sm mb-1">
+                            <strong>Elevation:</strong> {summit.elevation.toLocaleString()} ft
+                          </p>
+                          <p className="text-sm">
+                            <strong>Date:</strong> {new Date(summit.date).toLocaleDateString()}
+                          </p>
+                        </div>
+                      </Popup>
+                    </Marker>
+                  ))}
+                  {summits.planned.map((summit) => (
+                    <Marker
+                      key={summit.id}
+                      position={summit.coords}
+                      icon={greenIcon}
+                    >
+                      <Popup>
+                        <div className="min-w-[200px]">
+                          <h3 className="font-bold text-lg mb-1">{summit.name}</h3>
+                          <p className="text-sm text-gray-600 mb-2">{summit.location}</p>
+                          <p className="text-sm mb-1">
+                            <strong>Elevation:</strong> {summit.elevation.toLocaleString()} ft
+                          </p>
+                          <p className="text-sm">
+                            <strong>Planned:</strong> {new Date(summit.date).toLocaleDateString()}
+                          </p>
+                        </div>
+                      </Popup>
+                    </Marker>
+                  ))}
+                  {summits.dreams.map((summit) => (
+                    <Marker
+                      key={summit.id}
+                      position={summit.coords}
+                      icon={purpleIcon}
+                    >
+                      <Popup>
+                        <div className="min-w-[200px]">
+                          <h3 className="font-bold text-lg mb-1">{summit.name}</h3>
+                          <p className="text-sm text-gray-600 mb-2">{summit.location}</p>
+                          <p className="text-sm mb-1">
+                            <strong>Elevation:</strong> {summit.elevation.toLocaleString()} ft
+                          </p>
+                        </div>
+                      </Popup>
+                    </Marker>
+                  ))}
+                </MapContainer>
+              </div>
+            </CardContent>
+          </Card>
+
+          <div className="text-center mt-8">
+            <Link to="/map">
+              <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">
+                View Full Map
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
