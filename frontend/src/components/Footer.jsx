@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mountain, Mail, Instagram, Facebook } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { statsAPI } from '../services/api';
 
 const Footer = () => {
+  const [stats, setStats] = useState({ totalSummits: 0, totalElevation: 0, plannedPeaks: 0 });
+
+  useEffect(() => {
+    loadStats();
+  }, []);
+
+  const loadStats = async () => {
+    try {
+      const data = await statsAPI.get();
+      setStats(data);
+    } catch (error) {
+      console.error('Failed to load stats:', error);
+    }
+  };
   return (
     <footer className="bg-stone-900 border-t border-stone-700">
       {/* Mountain Peak Divider */}
@@ -107,15 +122,15 @@ const Footer = () => {
             </h3>
             <div className="space-y-3">
               <div>
-                <div className="text-amber-700 text-2xl font-bold" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>2</div>
+                <div className="text-amber-700 text-2xl font-bold" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>{stats.totalSummits}</div>
                 <div className="text-stone-400 text-sm">Summits Conquered</div>
               </div>
               <div>
-                <div className="text-amber-700 text-2xl font-bold" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>17,537 ft</div>
+                <div className="text-amber-700 text-2xl font-bold" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>{stats.totalElevation.toLocaleString()} ft</div>
                 <div className="text-stone-400 text-sm">Total Elevation Climbed</div>
               </div>
               <div>
-                <div className="text-amber-700 text-2xl font-bold" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>6</div>
+                <div className="text-amber-700 text-2xl font-bold" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>{stats.plannedPeaks}</div>
                 <div className="text-stone-400 text-sm">Peaks Planned</div>
               </div>
             </div>

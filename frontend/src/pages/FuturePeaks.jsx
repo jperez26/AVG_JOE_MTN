@@ -1,9 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '../components/ui/card';
 import { MapPin, Calendar, TrendingUp } from 'lucide-react';
-import { summits } from '../mock';
+import { summitsAPI } from '../services/api';
 
 const FuturePeaks = () => {
+  const [summits, setSummits] = useState({ planned: [], dreams: [] });
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadSummits();
+  }, []);
+
+  const loadSummits = async () => {
+    try {
+      const [plannedData, dreamsData] = await Promise.all([
+        summitsAPI.getAll('planned'),
+        summitsAPI.getAll('dream')
+      ]);
+      setSummits({ planned: plannedData, dreams: dreamsData });
+    } catch (error) {
+      console.error('Failed to load summits:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-stone-900 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>
+    );
+  }
   return (
     <div className="min-h-screen bg-stone-900">
       {/* Hero with Anapurna Background */}

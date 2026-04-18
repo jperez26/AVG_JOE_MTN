@@ -1,16 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '../components/ui/card';
 import { Star } from 'lucide-react';
-import { gearReviews } from '../mock';
+import { gearAPI } from '../services/api';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
 
 const GearReviews = () => {
-  const categories = ['All', ...new Set(gearReviews.map(item => item.category))];
-  const [selectedCategory, setSelectedCategory] = React.useState('All');
+  const [gearReviews, setGearReviews] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
+  useEffect(() => {
+    loadGear();
+  }, []);
+
+  const loadGear = async () => {
+    try {
+      const data = await gearAPI.getAll();
+      setGearReviews(data);
+    } catch (error) {
+      console.error('Failed to load gear:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const categories = ['All', ...new Set(gearReviews.map(item => item.category))];
   const filteredGear = selectedCategory === 'All'
     ? gearReviews
     : gearReviews.filter(item => item.category === selectedCategory);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-stone-900 pt-24 pb-16 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>
+    );
+  }
 
   const RatingBar = ({ rating }) => (
     <div className="flex items-center gap-2">

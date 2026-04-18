@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Card, CardContent } from '../components/ui/card';
-import { summits } from '../mock';
+import { summitsAPI } from '../services/api';
 import { MapPin, TrendingUp, Calendar } from 'lucide-react';
 
 // Fix default marker icons
@@ -61,7 +61,36 @@ const MapController = ({ selectedSummit }) => {
 };
 
 const SummitMap = () => {
-  const [selectedSummit, setSelectedSummit] = React.useState(null);
+  const [selectedSummit, setSelectedSummit] = useState(null);
+  const [summits, setSummits] = useState({ past: [], planned: [], dreams: [] });
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadSummits();
+  }, []);
+
+  const loadSummits = async () => {
+    try {
+      const [pastData, plannedData, dreamsData] = await Promise.all([
+        summitsAPI.getAll('past'),
+        summitsAPI.getAll('planned'),
+        summitsAPI.getAll('dream')
+      ]);
+      setSummits({ past: pastData, planned: plannedData, dreams: dreamsData });
+    } catch (error) {
+      console.error('Failed to load summits:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-stone-900 pt-24 pb-16 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>
+    );
+  }
 
   const allSummits = [
     ...summits.past.map(s => ({ ...s, type: 'past', icon: greyIcon })),

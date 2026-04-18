@@ -1,11 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '../components/ui/card';
 import { MapPin, Calendar, TrendingUp } from 'lucide-react';
-import { summits } from '../mock';
+import { summitsAPI } from '../services/api';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../components/ui/dialog';
 import { Button } from '../components/ui/button';
 
 const PastSummits = () => {
+  const [summits, setSummits] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadSummits();
+  }, []);
+
+  const loadSummits = async () => {
+    try {
+      const data = await summitsAPI.getAll('past');
+      setSummits(data);
+    } catch (error) {
+      console.error('Failed to load summits:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-stone-900 pt-24 pb-16 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>
+    );
+  }
   return (
     <div className="min-h-screen bg-stone-900 pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,7 +49,7 @@ const PastSummits = () => {
 
         {/* Summits Grid */}
         <div className="grid md:grid-cols-2 gap-8">
-          {summits.past.map((summit) => (
+          {summits.map((summit) => (
             <Dialog key={summit.id}>
               <DialogTrigger asChild>
                 <Card className="bg-stone-800 border-stone-700 overflow-hidden cursor-pointer hover:shadow-2xl hover:scale-[1.02] transition-all group">

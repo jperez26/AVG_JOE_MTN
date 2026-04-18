@@ -1,9 +1,34 @@
-import React from 'react';
-import { galleryPhotos } from '../mock';
+import React, { useState, useEffect } from 'react';
+import { galleryAPI } from '../services/api';
 import { Dialog, DialogContent, DialogTrigger } from '../components/ui/dialog';
 import { Camera } from 'lucide-react';
 
 const Gallery = () => {
+  const [galleryPhotos, setGalleryPhotos] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadPhotos();
+  }, []);
+
+  const loadPhotos = async () => {
+    try {
+      const data = await galleryAPI.getAll();
+      setGalleryPhotos(data);
+    } catch (error) {
+      console.error('Failed to load gallery:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-stone-900 pt-24 pb-16 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>
+    );
+  }
   return (
     <div className="min-h-screen bg-stone-900 pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
