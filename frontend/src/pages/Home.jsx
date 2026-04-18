@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Mountain, TrendingUp, Award, Calendar } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
-import { summits, stats } from '../mock';
+import { summitsAPI, statsAPI } from '../services/api';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -41,6 +41,44 @@ const greenIcon = createCustomIcon('#D97706'); // Amber-600
 const purpleIcon = createCustomIcon('#7C2D12'); // Burnt brown
 
 const Home = () => {
+  const [summits, setSummits] = useState({ past: [], planned: [], dreams: [] });
+  const [stats, setStats] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = async () => {
+    try {
+      const [pastData, plannedData, dreamsData, statsData] = await Promise.all([
+        summitsAPI.getAll('past'),
+        summitsAPI.getAll('planned'),
+        summitsAPI.getAll('dream'),
+        statsAPI.get()
+      ]);
+      
+      setSummits({
+        past: pastData,
+        planned: plannedData,
+        dreams: dreamsData
+      });
+      setStats(statsData);
+    } catch (error) {
+      console.error('Failed to load data:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-stone-900 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>
+    );
+  }
+
   const latestSummit = summits.past[summits.past.length - 1];
   const nextPeak = summits.planned[0];
 
