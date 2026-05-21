@@ -11,6 +11,7 @@ import FuturePeaks from './pages/FuturePeaks';
 import SummitMap from './pages/SummitMap';
 import GearReviews from './pages/GearReviews';
 import Gallery from './pages/Gallery';
+import Contact from './pages/Contact';
 import AdminLogin from './pages/admin/AdminLogin';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import ManageSummits from './pages/admin/ManageSummits';
@@ -31,6 +32,7 @@ function App() {
             <Route path="/map" element={<><Header /><SummitMap /><Footer /></>} />
             <Route path="/gear" element={<><Header /><GearReviews /><Footer /></>} />
             <Route path="/gallery" element={<><Header /><Gallery /><Footer /></>} />
+            <Route path="/contact" element={<><Header /><Contact /><Footer /></>} />
             
             {/* Admin Routes */}
             <Route path="/admin/login" element={<AdminLogin />} />

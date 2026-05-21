@@ -11,7 +11,8 @@ const Header = () => {
     { path: '/future-peaks', label: 'Future Peaks' },
     { path: '/map', label: 'Summit Map' },
     { path: '/gear', label: 'Gear Reviews' },
-    { path: '/gallery', label: 'Gallery' }
+    { path: '/gallery', label: 'Gallery' },
+    { path: '/contact', label: 'Contact' }
   ];
 
   const isActive = (path) => location.pathname === path;
