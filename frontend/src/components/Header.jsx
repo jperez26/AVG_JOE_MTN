@@ -35,12 +35,12 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-5">
+          <nav className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors relative whitespace-nowrap ${
+                className={`text-[15px] font-medium transition-colors relative whitespace-nowrap ${
                   isActive(link.path)
                     ? 'text-white'
                     : 'text-amber-600 hover:text-white'
