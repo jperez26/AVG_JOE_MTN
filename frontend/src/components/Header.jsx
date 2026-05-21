@@ -21,10 +21,10 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-2 group">
             <Mountain className="w-8 h-8 text-amber-600 group-hover:text-amber-500 transition-colors" />
             <span className="text-white font-bold text-lg whitespace-nowrap" style={{ fontFamily: 'Bebas Neue, sans-serif', letterSpacing: '0.05em' }}>
-              AVG JOE MOUNTAINEERING
+              AVG JOE
             </span>
           </Link>
 
