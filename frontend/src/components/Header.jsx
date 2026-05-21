@@ -1,13 +1,9 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Moon, Sun } from 'lucide-react';
-import { Button } from './ui/button';
+import { Mountain } from 'lucide-react';
 
 const Header = () => {
   const location = useLocation();
-  const [theme, setTheme] = React.useState(() => {
-    return localStorage.getItem('theme') || 'light';
-  });
 
   const navLinks = [
     { path: '/', label: 'Home' },
@@ -20,58 +16,14 @@ const Header = () => {
 
   const isActive = (path) => location.pathname === path;
 
-  const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    
-    if (newTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-      document.body.style.backgroundColor = '#1c1917';
-    } else {
-      document.documentElement.classList.remove('dark');
-      document.body.style.backgroundColor = '#FAF8F5';
-    }
-  };
-
-  React.useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-      document.body.style.backgroundColor = '#1c1917';
-    } else {
-      document.documentElement.classList.remove('dark');
-      document.body.style.backgroundColor = '#FAF8F5';
-    }
-  }, [theme]);
-
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#2C5530] backdrop-blur-sm border-b border-[#1a331c]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            {/* Annapurna outline SVG */}
-            <svg
-              className="w-10 h-10 text-amber-600 group-hover:text-amber-500 transition-colors"
-              viewBox="0 0 100 100"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M10 80 L25 60 L35 70 L45 50 L55 65 L65 45 L75 55 L90 35 L95 80 Z"
-                stroke="currentColor"
-                strokeWidth="3"
-                fill="none"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M45 50 L50 40 L55 65"
-                stroke="currentColor"
-                strokeWidth="2"
-                fill="none"
-              />
-            </svg>
-            <span className="text-white font-bold text-xl" style={{ fontFamily: 'Bebas Neue, sans-serif', letterSpacing: '0.05em' }}>
+            <Mountain className="w-8 h-8 text-amber-600 group-hover:text-amber-500 transition-colors" />
+            <span className="text-white font-bold text-lg whitespace-nowrap" style={{ fontFamily: 'Bebas Neue, sans-serif', letterSpacing: '0.05em' }}>
               AVG JOE MOUNTAINEERING
             </span>
           </Link>
@@ -82,7 +34,7 @@ const Header = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors relative ${
+                className={`text-sm font-medium transition-colors relative whitespace-nowrap ${
                   isActive(link.path)
                     ? 'text-white'
                     : 'text-amber-600 hover:text-white'
@@ -91,32 +43,10 @@ const Header = () => {
                 {link.label}
               </Link>
             ))}
-            
-            {/* Theme Toggle */}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              className="text-amber-600 hover:text-white hover:bg-[#1a331c]"
-            >
-              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </Button>
           </nav>
-
-          {/* Mobile - Centered navigation */}
-          <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              className="text-amber-600 hover:text-white"
-            >
-              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </Button>
-          </div>
         </div>
 
-        {/* Mobile Navigation - Always visible on small screens */}
+        {/* Mobile Navigation */}
         <nav className="md:hidden pb-4 flex flex-wrap gap-4 justify-center">
           {navLinks.map((link) => (
             <Link

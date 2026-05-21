@@ -24,7 +24,7 @@ const GearReviews = () => {
     }
   };
 
-  const categories = ['All', ...new Set(gearReviews.map(item => item.category))];
+  const specificCategories = ['All', 'Climbing Gear', 'Footwear', 'Clothing', 'Packs', 'Everything Else'];
   const filteredGear = selectedCategory === 'All'
     ? gearReviews
     : gearReviews.filter(item => item.category === selectedCategory);
@@ -61,14 +61,14 @@ const GearReviews = () => {
             Gear Reviews
           </h1>
           <p className="text-xl text-stone-400">
-            Honest reviews of the equipment that gets me up the mountain
+            Reviews of gear I have used
           </p>
         </div>
 
         {/* Category Filter */}
         <Tabs defaultValue="All" className="mb-8">
           <TabsList className="bg-stone-800 border border-stone-700">
-            {categories.map((category) => (
+            {specificCategories.map((category) => (
               <TabsTrigger
                 key={category}
                 value={category}

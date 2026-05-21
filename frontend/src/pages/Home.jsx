@@ -104,7 +104,7 @@ const Home = () => {
             GET OUT THERE
           </h1>
           <p className="text-xl md:text-2xl text-stone-300 mb-8">
-            From Local Peaks to Global Summits
+            To help equip others with the knowledge I wish I had before I started
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/past-summits">
@@ -131,16 +131,6 @@ const Home = () => {
       {/* Interactive Map Section */}
       <section className="py-20 bg-stone-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2
-            className="text-4xl md:text-5xl font-bold text-white mb-4 text-center"
-            style={{ fontFamily: 'Bebas Neue, sans-serif' }}
-          >
-            Summit Map
-          </h2>
-          <p className="text-xl text-stone-400 mb-8 text-center">
-            Tracking my mountaineering journey across the globe
-          </p>
-
           {/* Legend */}
           <div className="flex justify-center gap-6 text-sm mb-6">
             <div className="flex items-center gap-2">
@@ -287,7 +277,7 @@ const Home = () => {
             className="text-4xl md:text-5xl font-bold text-white mb-12 text-center"
             style={{ fontFamily: 'Bebas Neue, sans-serif' }}
           >
-            Latest Conquest
+            Latest Trip
           </h2>
           <Card className="bg-stone-800 border-stone-700 overflow-hidden hover:shadow-2xl transition-shadow">
             <div className="grid md:grid-cols-2">
