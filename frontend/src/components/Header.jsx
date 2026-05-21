@@ -23,9 +23,14 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <Mountain className="w-8 h-8 text-amber-600 group-hover:text-amber-500 transition-colors" />
-            <span className="text-white font-bold text-lg whitespace-nowrap" style={{ fontFamily: 'Bebas Neue, sans-serif', letterSpacing: '0.05em' }}>
-              AVG JOE
-            </span>
+            <div className="flex flex-col leading-tight">
+              <span className="text-white font-bold text-base" style={{ fontFamily: 'Bebas Neue, sans-serif', letterSpacing: '0.05em' }}>
+                AVG JOE
+              </span>
+              <span className="text-white font-bold text-xs" style={{ fontFamily: 'Bebas Neue, sans-serif', letterSpacing: '0.05em' }}>
+                MOUNTAINEERING
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
