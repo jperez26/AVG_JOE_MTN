@@ -14,6 +14,8 @@ import Gallery from './pages/Gallery';
 import AdminLogin from './pages/admin/AdminLogin';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import ManageSummits from './pages/admin/ManageSummits';
+import ManageGear from './pages/admin/ManageGear';
+import ManageGallery from './pages/admin/ManageGallery';
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
@@ -45,6 +47,22 @@ function App() {
               element={
                 <ProtectedRoute>
                   <ManageSummits />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/gear"
+              element={
+                <ProtectedRoute>
+                  <ManageGear />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/gallery"
+              element={
+                <ProtectedRoute>
+                  <ManageGallery />
                 </ProtectedRoute>
               }
             />

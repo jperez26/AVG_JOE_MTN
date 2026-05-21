@@ -5,7 +5,9 @@ import { Button } from './ui/button';
 
 const Header = () => {
   const location = useLocation();
-  const [theme, setTheme] = React.useState('dark');
+  const [theme, setTheme] = React.useState(() => {
+    return localStorage.getItem('theme') || 'light';
+  });
 
   const navLinks = [
     { path: '/', label: 'Home' },
@@ -21,26 +23,36 @@ const Header = () => {
   const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+    
     if (newTheme === 'dark') {
       document.documentElement.classList.add('dark');
+      document.body.style.backgroundColor = '#1c1917';
     } else {
       document.documentElement.classList.remove('dark');
+      document.body.style.backgroundColor = '#FAF8F5';
     }
   };
 
   React.useEffect(() => {
-    document.documentElement.classList.add('dark');
-  }, []);
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+      document.body.style.backgroundColor = '#1c1917';
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.body.style.backgroundColor = '#FAF8F5';
+    }
+  }, [theme]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-stone-900/95 dark:bg-stone-900/95 backdrop-blur-sm border-b border-stone-700">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#2C5530] backdrop-blur-sm border-b border-[#1a331c]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
             {/* Annapurna outline SVG */}
             <svg
-              className="w-10 h-10 text-amber-700 group-hover:text-amber-600 transition-colors"
+              className="w-10 h-10 text-amber-600 group-hover:text-amber-500 transition-colors"
               viewBox="0 0 100 100"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +72,7 @@ const Header = () => {
               />
             </svg>
             <span className="text-white font-bold text-xl" style={{ fontFamily: 'Bebas Neue, sans-serif', letterSpacing: '0.05em' }}>
-              AVERAGE JOE MOUNTAINEERING
+              AVG JOE MOUNTAINEERING
             </span>
           </Link>
 
@@ -73,7 +85,7 @@ const Header = () => {
                 className={`text-sm font-medium transition-colors relative ${
                   isActive(link.path)
                     ? 'text-white'
-                    : 'text-amber-700 hover:text-white'
+                    : 'text-amber-600 hover:text-white'
                 }`}
               >
                 {link.label}
@@ -85,19 +97,19 @@ const Header = () => {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="text-amber-700 hover:text-white hover:bg-stone-800"
+              className="text-amber-600 hover:text-white hover:bg-[#1a331c]"
             >
               {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </Button>
           </nav>
 
-          {/* Mobile - Show theme toggle only */}
-          <div className="md:hidden flex items-center gap-2">
+          {/* Mobile - Centered navigation */}
+          <div className="md:hidden">
             <Button
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="text-amber-700 hover:text-white"
+              className="text-amber-600 hover:text-white"
             >
               {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </Button>
@@ -113,7 +125,7 @@ const Header = () => {
               className={`text-xs font-medium transition-colors ${
                 isActive(link.path)
                   ? 'text-white'
-                  : 'text-amber-700 hover:text-white'
+                  : 'text-amber-600 hover:text-white'
               }`}
             >
               {link.label}

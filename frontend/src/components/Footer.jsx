@@ -18,13 +18,14 @@ const Footer = () => {
       console.error('Failed to load stats:', error);
     }
   };
+
   return (
-    <footer className="bg-stone-900 border-t border-stone-700">
+    <footer className="bg-[#2C5530] border-t border-[#1a331c]">
       {/* Mountain Peak Divider */}
       <div className="h-16 relative overflow-hidden">
         <svg
           viewBox="0 0 1200 100"
-          className="absolute bottom-0 w-full h-full text-stone-800"
+          className="absolute bottom-0 w-full h-full text-[#1a331c]"
           preserveAspectRatio="none"
         >
           <path
@@ -39,23 +40,23 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <Mountain className="w-8 h-8 text-amber-700" />
+              <Mountain className="w-8 h-8 text-amber-600" />
               <div className="flex flex-col">
                 <span className="text-white font-bold text-lg leading-tight" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
                   AVERAGE JOE
                 </span>
-                <span className="text-stone-400 text-sm leading-tight">
+                <span className="text-stone-300 text-sm leading-tight">
                   MOUNTAINEERING
                 </span>
               </div>
             </div>
-            <p className="text-stone-400 text-sm mb-4">
-              Documenting the journey from local peaks to the world's highest summits. One step at a time.
+            <p className="text-stone-300 text-sm mb-4">
+              Get Out There
             </p>
             <div className="flex gap-4">
               <a
                 href="mailto:contact@averagejoeclimbing.com"
-                className="text-stone-400 hover:text-amber-700 transition-colors"
+                className="text-stone-300 hover:text-amber-600 transition-colors"
                 aria-label="Email"
               >
                 <Mail className="w-5 h-5" />
@@ -64,7 +65,7 @@ const Footer = () => {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-stone-400 hover:text-amber-700 transition-colors"
+                className="text-stone-300 hover:text-amber-600 transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
@@ -73,7 +74,7 @@ const Footer = () => {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-stone-400 hover:text-amber-700 transition-colors"
+                className="text-stone-300 hover:text-amber-600 transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
@@ -88,27 +89,27 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/past-summits" className="text-stone-400 hover:text-amber-700 transition-colors text-sm">
+                <Link to="/past-summits" className="text-stone-300 hover:text-amber-600 transition-colors text-sm">
                   Past Summits
                 </Link>
               </li>
               <li>
-                <Link to="/future-peaks" className="text-stone-400 hover:text-amber-700 transition-colors text-sm">
+                <Link to="/future-peaks" className="text-stone-300 hover:text-amber-600 transition-colors text-sm">
                   Future Peaks
                 </Link>
               </li>
               <li>
-                <Link to="/map" className="text-stone-400 hover:text-amber-700 transition-colors text-sm">
+                <Link to="/map" className="text-stone-300 hover:text-amber-600 transition-colors text-sm">
                   Summit Map
                 </Link>
               </li>
               <li>
-                <Link to="/gear" className="text-stone-400 hover:text-amber-700 transition-colors text-sm">
+                <Link to="/gear" className="text-stone-300 hover:text-amber-600 transition-colors text-sm">
                   Gear Reviews
                 </Link>
               </li>
               <li>
-                <Link to="/gallery" className="text-stone-400 hover:text-amber-700 transition-colors text-sm">
+                <Link to="/gallery" className="text-stone-300 hover:text-amber-600 transition-colors text-sm">
                   Photo Gallery
                 </Link>
               </li>
@@ -122,25 +123,24 @@ const Footer = () => {
             </h3>
             <div className="space-y-3">
               <div>
-                <div className="text-amber-700 text-2xl font-bold" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>{stats.totalSummits}</div>
-                <div className="text-stone-400 text-sm">Summits Conquered</div>
+                <div className="text-amber-600 text-2xl font-bold" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>{stats.totalSummits}</div>
+                <div className="text-stone-300 text-sm">Total Summits</div>
               </div>
               <div>
-                <div className="text-amber-700 text-2xl font-bold" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>{stats.totalElevation.toLocaleString()} ft</div>
-                <div className="text-stone-400 text-sm">Total Elevation Climbed</div>
+                <div className="text-amber-600 text-2xl font-bold" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>{stats.totalElevation.toLocaleString()} ft</div>
+                <div className="text-stone-300 text-sm">Total Elevation Climbed</div>
               </div>
               <div>
-                <div className="text-amber-700 text-2xl font-bold" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>{stats.plannedPeaks}</div>
-                <div className="text-stone-400 text-sm">Peaks Planned</div>
+                <div className="text-amber-600 text-2xl font-bold" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>{stats.plannedPeaks}</div>
+                <div className="text-stone-300 text-sm">Peaks Planned</div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-stone-800 text-center text-stone-400 text-sm">
+        <div className="mt-12 pt-8 border-t border-[#1a331c] text-center text-stone-300 text-sm">
           <p>&copy; {new Date().getFullYear()} Average Joe Mountaineering. All rights reserved.</p>
-          <p className="mt-2 text-amber-700 italic">"Get Out There"</p>
         </div>
       </div>
     </footer>
