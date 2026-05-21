@@ -7,10 +7,10 @@ const Header = () => {
 
   const navLinks = [
     { path: '/', label: 'Home' },
-    { path: '/past-summits', label: 'Past Summits' },
-    { path: '/future-peaks', label: 'Future Peaks' },
-    { path: '/map', label: 'Summit Map' },
-    { path: '/gear', label: 'Gear Reviews' },
+    { path: '/past-summits', label: 'Summits' },
+    { path: '/future-peaks', label: 'Future' },
+    { path: '/map', label: 'Map' },
+    { path: '/gear', label: 'Gear' },
     { path: '/gallery', label: 'Gallery' },
     { path: '/contact', label: 'Contact' }
   ];
@@ -35,7 +35,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-5">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
